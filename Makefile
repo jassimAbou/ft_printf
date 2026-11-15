@@ -6,7 +6,7 @@
 #    By: jaboulka <jaboulka@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/13 14:59:12 by jaboulka          #+#    #+#              #
-#    Updated: 2026/11/14 18:24:35 by jaboulka         ###   ########.fr        #
+#    Updated: 2026/11/15 16:08:25 by jaboulka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ NAME = libftprintf.a
 
 LIBRARY = ft_printf.h
 
-SRCS = putchar_pf.c putnbr_pf.c putstr_pf.c puthex_pf.c putptr_pf.c ft_printf.c
+SRCS = putchar_pf.c putnbr_pf.c putstr_pf.c puthex_pf.c putptr_pf.c \
+	   putunsinbr_pf.c ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
