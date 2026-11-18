@@ -6,7 +6,7 @@
 /*   By: jaboulka <jaboulka@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 18:25:12 by jaboulka          #+#    #+#             */
-/*   Updated: 2026/11/16 12:57:17 by jaboulka         ###   ########.fr       */
+/*   Updated: 2026/11/18 19:08:22 by jaboulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ static int	ifs_and_elses(const char *format, va_list args, int i)
 		count = puthex_pf(va_arg(args, unsigned int), 'X') + count;
 	else if (format[i + 1] == '%')
 		count = putchar_pf('%') + count;
+	else
+	{
+		count = putchar_pf('%') + count;
+		count = putchar_pf(format[i + 1]) + count;
+	}
 	return (count);
 }
 
@@ -44,19 +49,21 @@ int	ft_printf(const char *format, ...)
 
 	i = 0;
 	count = 0;
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
+			if (!format[i + 1])
+				return (-1);
 			count = ifs_and_elses(format, args, i) + count;
-			i = i + 2;
-		}
-		else
-		{
-			count = putchar_pf(format[i]) + count;
 			i++;
 		}
+		else
+			count = putchar_pf(format[i]) + count;
+		i++;
 	}
 	va_end(args);
 	return (count);
