@@ -6,7 +6,7 @@
 /*   By: jaboulka <jaboulka@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:16:23 by jaboulka          #+#    #+#             */
-/*   Updated: 2026/11/15 15:16:37 by jaboulka         ###   ########.fr       */
+/*   Updated: 2026/11/19 12:58:19 by jaboulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	putptr_pf(void *ptr)
 	count = 0;
 	if (!ptr)
 	{
-		putstr_pf("0x0");
-		return (3);
+		putstr_pf("(nil)");
+		return (5);
 	}
 	putstr_pf("0x");
 	count = 2;
